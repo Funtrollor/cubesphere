@@ -14,6 +14,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 - Verification tests for the semi-discrete energy structure, energy evolution per flux, and equidistant geometry.
 - Plotting scripts in `scripts/` (`plot_convergence.py`, `plot_grids.py`, `pvd_to_gif.py`) and README figures in `docs/images/`.
 - MIT `LICENSE` file, CI workflow (fmt, clippy, tests on Linux/Windows/macOS, docs, MSRV, scripts), `CONTRIBUTING.md`, `CITATION.cff`.
+- Weekly scheduled CI run on the latest stable Rust, and Dependabot updates for GitHub Actions and the CPU workspace's Cargo dependencies.
 - API documentation for every public item, with `#![warn(missing_docs)]` and a runnable crate-level example per library crate.
 - crates.io metadata (`repository`, `readme`, `keywords`, `categories`, `rust-version = "1.87"`).
 

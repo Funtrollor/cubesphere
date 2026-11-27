@@ -5,6 +5,10 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+  # Weekly run on the latest stable Rust, so new compiler/clippy lints show up
+  # before they break an unrelated pull request (Monday 03:00 UTC = 11:00 Taipei).
+  schedule:
+    - cron: "0 3 * * 1"
 
 concurrency:
   group: ci-${{ github.ref }}
