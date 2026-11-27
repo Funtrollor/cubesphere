@@ -1,0 +1,26 @@
+version: 2
+updates:
+  # GitHub Actions used by .github/workflows/
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    groups:
+      actions:
+        patterns: ["*"]
+
+  # Root CPU workspace. Minor and patch bumps arrive as one grouped PR;
+  # major bumps get their own PR because they can change APIs.
+  - package-ecosystem: cargo
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    groups:
+      cargo-minor-and-patch:
+        update-types: ["minor", "patch"]
+
+  # crates/cubesphere-backend-cuda is intentionally not listed: it pins a git
+  # revision of NVIDIA/cuda-rust in its own Cargo.lock, and bumping it needs a
+  # GPU run of gpu_parity, which CI cannot do.
